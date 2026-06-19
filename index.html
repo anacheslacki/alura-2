@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mercado Financeiro - Análise e Visualização de Dados Financeiros com p5.js">
+    <meta name="keywords" content="mercado, financeiro, análise, p5.js, investimento">
+    <title>Mercado Financeiro - Dashboard Interativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">💼 Mercado Financeiro</h1>
+                <ul class="nav-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#analise">Análise</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Bem-vindo ao Dashboard Financeiro</h2>
+                    <p>Visualize dados de mercado em tempo real com gráficos interativos</p>
+                    <button class="btn btn-primary" onclick="scrollToSection('dashboard')">Explorar Dashboard</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard" class="dashboard">
+            <div class="container">
+                <h2>Dashboard Interativo</h2>
+                <p class="section-subtitle">Gráficos em tempo real com p5.js</p>
+                
+                <div class="dashboard-grid">
+                    <!-- Canvas p5.js Principal -->
+                    <div class="chart-container" id="p5-container"></div>
+                    
+                    <!-- Cards de Dados -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Volatilidade</h3>
+                            <p class="stat-value" id="volatility">0%</p>
+                            <p class="stat-label">Mercado</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Índice</h3>
+                            <p class="stat-value" id="index">0</p>
+                            <p class="stat-label">Pontos</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Rentabilidade</h3>
+                            <p class="stat-value" id="return">0%</p>
+                            <p class="stat-label">Anual</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Volume</h3>
+                            <p class="stat-value" id="volume">0M</p>
+                            <p class="stat-label">Negociado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles -->
+                <div class="controls">
+                    <button class="btn btn-secondary" onclick="resetChart()">Resetar Gráfico</button>
+                    <button class="btn btn-secondary" onclick="toggleAnimation()">Parar/Iniciar</button>
+                    <label>
+                        Velocidade:
+                        <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1" onchange="updateSpeed(this.value)">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANALYSIS SECTION -->
+        <section id="analise" class="analysis">
+            <div class="container">
+                <h2>Análise de Mercado</h2>
+                <p class="section-subtitle">Indicadores e Métricas Principais</p>
+                
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <h3>📈 Tendências</h3>
+                        <p>Visualize tendências de preços com análise técnica avançada utilizando p5.js para renderização otimizada.</p>
+                    </div>
+                    <div class="analysis-card">
+                        <h3>💹 Volatilidade</h3>
+                        <p>Monitore a volatilidade do mercado com gráficos interativos que atualizam em tempo real.</p>
+                    </div>
+                    <div class="analysis-card">
+                        <h3>📊 Distribuição</h3>
+                        <p>Entenda a distribuição de ativos e oportunidades de diversificação de portfólio.</p>
+                    </div>
+                    <div class="analysis-card">
+                        <h3>🎯 Oportunidades</h3>
+                        <p>Identifique oportunidades de investimento baseado em análise de dados em tempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contato" class="contact">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <p class="section-subtitle">Tem dúvidas? Fale conosco</p>
+                
+                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <input type="text" placeholder="Seu Nome" required>
+                    <input type="email" placeholder="Seu Email" required>
+                    <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Mercado Financeiro Dashboard. Todos os direitos reservados.</p>
+            <p>Desenvolvido com HTML, JavaScript e p5.js</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="script.js"></script>
+    <script src="sketch.js"></script>
+</body>
+</html>
